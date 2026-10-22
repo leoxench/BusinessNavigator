@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 🧭 Business Navigator
@@ -5,7 +6,7 @@
 ### AI-powered Opportunity Network for businesses, professionals, and partnerships
 
 <p align="center">
-  <img src="./assets/business-navigator-preview.png" alt="Business Navigator Preview" width="100%" />
+ <img width="1586" height="992" alt="a187d605-50b0-44a0-a02a-6df8b613e747" src="https://github.com/user-attachments/assets/43bbff47-5833-4ce7-9012-e64cd1c0f4aa" />
 </p>
 
 <p align="center">
