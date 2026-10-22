@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# 🧭 Business Navigator
+# 
 
 ### AI-powered Opportunity Network for businesses, professionals, and partnerships
 
