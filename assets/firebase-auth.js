@@ -27,6 +27,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });
+const registrationPreferencesKey = 'businessnavigator-registration-preferences';
+const localPublicProfileKey = 'businessnavigator-local-public-profile';
 
 isAnalyticsSupported()
   .then((supported) => {
@@ -58,6 +60,90 @@ function setNote(form, message, state = '') {
   note.dataset.state = state;
 }
 
+function registrationSettings(form) {
+  const locationControl = form?.elements.namedItem('locationCode');
+  const roleControl = form?.elements.namedItem('profileType');
+  const selectedLocation = locationControl?.selectedOptions?.[0];
+  const selectedRole = roleControl?.selectedOptions?.[0];
+
+  return {
+    profileType: roleControl?.value || 'specialist',
+    profileTypeLabel: selectedRole?.textContent?.trim() || 'Користувач / спеціаліст',
+    locationCode: locationControl?.value || '',
+    locationLabel: selectedLocation?.textContent?.trim() || '',
+    publications: {
+      avatar: Boolean(form?.elements.namedItem('publishAvatar')?.checked),
+      profile: Boolean(form?.elements.namedItem('publishProfile')?.checked),
+      map: Boolean(form?.elements.namedItem('publishMap')?.checked),
+    },
+  };
+}
+
+function validateRegistrationSettings(form) {
+  if (form?.dataset.authForm !== 'register') return true;
+  const settings = registrationSettings(form);
+  const hasPublicationChoice = Object.values(settings.publications).some(Boolean);
+
+  if (!settings.locationCode) {
+    setNote(form, 'Оберіть основну локацію.', 'error');
+    form.elements.namedItem('locationCode')?.focus();
+    return false;
+  }
+
+  if (!hasPublicationChoice) {
+    setNote(form, 'Оберіть щонайменше один дозвіл на публікацію.', 'error');
+    const status = form.querySelector('[data-consent-status]');
+    if (status) {
+      status.textContent = 'Потрібно обрати щонайменше один пункт.';
+      status.dataset.state = 'error';
+    }
+    form.elements.namedItem('publishAvatar')?.focus();
+    return false;
+  }
+
+  return true;
+}
+
+function saveRegistrationSettings(form, user) {
+  const settings = registrationSettings(form);
+  const displayName = user?.displayName || form?.elements.namedItem('displayName')?.value.trim() || user?.email || 'Користувач';
+  const record = {
+    ...settings,
+    uid: user?.uid || '',
+    displayName,
+    email: settings.publications.profile ? (user?.email || '') : '',
+    photoURL: settings.publications.avatar ? (user?.photoURL || '') : '',
+    updatedAt: new Date().toISOString(),
+  };
+
+  localStorage.setItem('businessnavigator-profile-type', settings.profileType);
+  localStorage.setItem(registrationPreferencesKey, JSON.stringify(settings));
+  localStorage.setItem(localPublicProfileKey, JSON.stringify(record));
+}
+
+document.querySelectorAll('[data-consent-group]').forEach((group) => {
+  const allControl = group.querySelector('[data-consent-all]');
+  const controls = Array.from(group.querySelectorAll('input[name^="publish"]'));
+  const status = group.querySelector('[data-consent-status]');
+
+  function syncConsentState() {
+    const selectedCount = controls.filter((control) => control.checked).length;
+    allControl.checked = selectedCount === controls.length;
+    allControl.indeterminate = selectedCount > 0 && selectedCount < controls.length;
+    if (status) {
+      status.textContent = selectedCount ? `Обрано дозволів: ${selectedCount} з ${controls.length}.` : 'Оберіть принаймні один дозвіл.';
+      status.dataset.state = selectedCount ? 'success' : '';
+    }
+  }
+
+  allControl.addEventListener('change', () => {
+    controls.forEach((control) => { control.checked = allControl.checked; });
+    syncConsentState();
+  });
+  controls.forEach((control) => control.addEventListener('change', syncConsentState));
+  syncConsentState();
+});
+
 function setBusy(control, busy, busyLabel = 'ЗАЧЕКАЙТЕ…') {
   if (!control) return;
   if (!control.dataset.idleHtml) control.dataset.idleHtml = control.innerHTML;
@@ -76,15 +162,14 @@ function finishAuth(form, user) {
 document.querySelectorAll('[data-auth-provider="google"]').forEach((button) => {
   button.addEventListener('click', async () => {
     const form = button.closest('[data-auth-form]');
+    if (!validateRegistrationSettings(form)) return;
     setBusy(button, true, 'ВІДКРИВАЄМО GOOGLE…');
     setNote(form, 'Відкриваємо захищений вхід Google…');
 
     try {
       await setPersistence(auth, browserLocalPersistence);
-      if (form?.dataset.authForm === 'register') {
-        localStorage.setItem('businessnavigator-profile-type', form.elements.profileType?.value || 'specialist');
-      }
       const result = await signInWithPopup(auth, googleProvider);
+      if (form?.dataset.authForm === 'register') saveRegistrationSettings(form, result.user);
       finishAuth(form, result.user);
     } catch (error) {
       setNote(form, authMessage(error), 'error');
@@ -98,6 +183,7 @@ document.querySelectorAll('[data-auth-form]').forEach((form) => {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const mode = form.dataset.authForm;
+    if (!validateRegistrationSettings(form)) return;
     const email = form.elements.email?.value.trim();
     const password = form.elements.password?.value;
     const submit = form.querySelector('[type="submit"]');
@@ -113,7 +199,7 @@ document.querySelectorAll('[data-auth-form]').forEach((form) => {
         credential = await createUserWithEmailAndPassword(auth, email, password);
         const displayName = form.elements.displayName?.value.trim();
         if (displayName) await updateProfile(credential.user, { displayName });
-        localStorage.setItem('businessnavigator-profile-type', form.elements.profileType?.value || 'specialist');
+        saveRegistrationSettings(form, credential.user);
       } else {
         credential = await signInWithEmailAndPassword(auth, email, password);
       }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Локальні професійні спільноти BusinessNavigator та публічні профілі учасників за містами.">
+  <title>Міста і локальні спільноти - BusinessNavigator</title>
+  <link rel="icon" href="assets/images/businessnavigator-compass.png" type="image/png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="site-nav">
+      <a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a>
+      <div class="nav-links"><a href="jobs.html">Вакансії</a><a href="companies.html">Компанії</a><a href="candidates.html">Кандидати</a><a href="startups.html">Стартапи</a><a href="cities.html">Міста</a><a href="learning.html">Навчання</a></div>
+      <div class="nav-actions"><a class="auth-link" href="login.html">Увійти</a><a class="contact-btn" href="register.html"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Приєднатися</a></div>
+      <button class="hamburger" data-menu-toggle aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu"><a href="jobs.html">ВАКАНСІЇ</a><a href="companies.html">КОМПАНІЇ</a><a href="candidates.html">КАНДИДАТИ</a><a href="startups.html">СТАРТАПИ</a><a href="cities.html">МІСТА</a><a href="learning.html">НАВЧАННЯ</a><a href="login.html">УВІЙТИ</a><a href="register.html">РЕЄСТРАЦІЯ</a></div>
+
+    <main data-city-directory>
+      <section class="page-hero city-directory-hero">
+        <p class="city-overline">GLOBAL NETWORK</p>
+        <h1>ЛОКАЛЬНІ СПІЛЬНОТИ BUSINESSNAVIGATOR</h1>
+        <p>Дізнавайтеся більше про міста, знаходьте професійні контакти та переглядайте лише ті профілі, власники яких дозволили публікацію даних і локації.</p>
+      </section>
+
+      <section class="section city-directory-section">
+        <nav class="city-tabs" aria-label="Оберіть місто">
+          <a href="cities.html?city=kyiv" data-city-tab="kyiv">Київ</a>
+          <a href="cities.html?city=warsaw" data-city-tab="warsaw">Варшава</a>
+          <a href="cities.html?city=toronto" data-city-tab="toronto">Торонто</a>
+          <a href="cities.html?city=berlin" data-city-tab="berlin">Берлін</a>
+        </nav>
+
+        <div class="city-profile-panel">
+          <div class="city-profile-copy">
+            <span class="city-country" data-city-country></span>
+            <h2 data-city-name></h2>
+            <p data-city-description></p>
+            <div class="city-opportunity-list" data-city-opportunities></div>
+          </div>
+          <aside class="city-network-summary">
+            <span>Присутність за згодою</span>
+            <strong data-city-public-count>0</strong>
+            <p>Лічильник враховує поточний профіль лише з дозволом на локацію. Картка з ім'ям з'являється тільки за окремою згодою на публічні дані.</p>
+            <a class="primary-btn" href="register.html">ДОДАТИ СВІЙ ПРОФІЛЬ</a>
+          </aside>
+        </div>
+
+        <div class="city-members-head">
+          <div><small>LOCAL MEMBERS</small><h2>ХТО Є У ЦІЙ ЛОКАЦІЇ</h2></div>
+          <p>Демонстраційні профілі показують майбутній формат каталогу. Після реєстрації ваш профіль з'явиться тут локально, якщо дозволено публічні дані та мапу.</p>
+        </div>
+        <div class="city-member-grid" data-city-members></div>
+        <p class="city-privacy-note" data-city-privacy-note></p>
+      </section>
+    </main>
+
+    <footer class="footer"><div><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a><p style="margin-top:16px">Українська професійна мережа для бізнесу, кар'єри, стартапів, знань і нових можливостей.</p></div><div class="footer-links"><a href="about.html">Про нас</a><a href="cities.html">Міста</a><a href="contact.html">Контакти</a><a href="login.html">Увійти</a><a href="register.html">Реєстрація</a><a href="https://www.pexels.com/" target="_blank" rel="noopener">Фото: Pexels</a></div></footer>
+  </div>
+  <script src="assets/app.js"></script>
+  <script src="assets/cities.js"></script>
+</body>
+</html>

@@ -165,13 +165,29 @@ img,video{max-width:100%;display:block}
 .site-nav>.brand+.theme-toggle{margin-left:auto}.site-nav>.brand+.theme-toggle+.nav-actions{margin-left:0!important}
 
 /* city network */
+.cities-section .section-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end}
+.cities-section .section-head>div{grid-column:1/-1}
+.cities-section .section-title{max-width:none;width:100%;font-size:clamp(48px,7vw,110px)}
+.cities-section .section-copy{max-width:820px;margin-top:22px}
+.cities-section .section-head>.section-link{grid-column:2;grid-row:2;align-self:end}
 .city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .city-card{height:460px;position:relative;overflow:hidden;border:1px solid var(--line);background:#111;color:#fff;isolation:isolate}
+.city-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .city-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,8,.04),rgba(4,7,8,.12) 44%,rgba(4,7,8,.92));z-index:1}
 .city-card img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04);transition:transform .55s ease,filter .55s ease}
 .city-card:hover img{transform:scale(1.045);filter:saturate(1) contrast(1.04)}
 .city-index{position:absolute;z-index:2;top:20px;right:20px;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.38);font-size:10px;letter-spacing:.12em;background:rgba(5,5,5,.24);backdrop-filter:blur(10px)}
 .city-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}.city-copy small{display:block;color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.city-copy h3{font-size:clamp(34px,3.6vw,58px);margin-top:8px}.city-copy p{color:rgba(255,255,255,.72);font-size:11px;margin-top:10px;text-transform:uppercase;letter-spacing:.08em}
+.city-view{display:block;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);font-size:9px;font-weight:700;letter-spacing:.12em;color:#fff;opacity:.82}
+
+/* registration roles and publication controls */
+.role-guide{border:1px solid var(--line);background:var(--panel);margin:-3px 0 18px}.role-guide summary{cursor:pointer;padding:14px 16px;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}.role-guide summary::marker{color:var(--accent)}.role-guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px 16px}.role-guide-grid p{font-size:11px}.role-guide-grid strong,.role-guide-grid span{display:block}.role-guide-grid strong{color:var(--text);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.consent-box{margin:20px 0;border:1px solid var(--line-strong);padding:18px;background:var(--panel)}.consent-box legend{padding:0 8px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}.consent-intro{font-size:11px;margin-bottom:13px}.consent-options{display:grid;gap:8px;margin-top:8px}.consent-choice{display:flex;gap:11px;align-items:flex-start;padding:12px;border:1px solid var(--line);cursor:pointer;background:var(--bg)}.consent-choice:hover{border-color:var(--accent)}.consent-choice input{width:17px;height:17px;flex:0 0 17px;margin:1px 0 0;accent-color:var(--accent)}.consent-choice span,.consent-choice strong,.consent-choice small{display:block}.consent-choice strong{font-size:11px;letter-spacing:.05em;text-transform:uppercase}.consent-choice small{font-size:10px;color:var(--muted);line-height:1.45;margin-top:3px}.consent-choice-all{border-color:var(--accent-border);background:rgba(7,137,165,.08)}.consent-status{font-size:10px;margin-top:11px}.consent-status[data-state="success"]{color:#1a8c60}.consent-status[data-state="error"]{color:#d34859}
+
+/* city directory */
+.city-directory-hero{padding-bottom:60px}.city-directory-hero h1{max-width:1320px}.city-overline{color:var(--accent)!important;font-size:11px!important;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin:0 0 20px!important}.city-directory-section{padding-top:42px}.city-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}.city-tabs a{border:1px solid var(--line-strong);padding:12px 17px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--panel)}.city-tabs a:hover,.city-tabs a.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.city-profile-panel{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);border:1px solid var(--line);background:var(--panel)}.city-profile-copy{padding:clamp(30px,5vw,70px)}.city-country{display:block;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.city-profile-copy h2{font-size:clamp(64px,10vw,150px);letter-spacing:-.045em;margin-top:8px}.city-profile-copy>p{font-size:15px;max-width:820px;margin-top:24px}.city-opportunity-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}.city-opportunity-list span{border:1px solid var(--line);padding:8px 10px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.city-network-summary{padding:32px;border-left:1px solid var(--line);background:var(--bg-soft);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}.city-network-summary>span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}.city-network-summary>strong{font-size:clamp(72px,10vw,140px);line-height:.9;margin-top:16px}.city-network-summary>p{font-size:11px;margin-top:18px}.city-network-summary .primary-btn{margin-top:25px}
+.city-members-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.55fr);gap:30px;align-items:end;margin:70px 0 28px}.city-members-head small{display:block;color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.16em;margin-bottom:13px}.city-members-head h2{font-size:clamp(40px,6vw,82px);letter-spacing:-.035em}.city-members-head>p{font-size:12px}.city-member-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.network-person-card{border:1px solid var(--line);background:var(--panel);padding:22px;min-height:260px;display:flex;flex-direction:column}.network-person-card[data-current-user="true"]{border-color:var(--accent);box-shadow:inset 0 3px 0 var(--accent)}.network-person-avatar{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:var(--bg-soft);border:1px solid var(--line-strong);font-size:23px;font-weight:700;color:var(--accent)}.network-person-avatar img{width:100%;height:100%;object-fit:cover}.network-person-copy{margin-top:auto;padding-top:30px}.network-person-meta{display:block;color:var(--accent);font-size:8px;font-weight:700;letter-spacing:.13em;margin-bottom:9px}.network-person-copy h3{font-size:20px}.network-person-copy>p{font-size:11px;margin-top:7px}.city-privacy-note{border-left:3px solid var(--accent);background:var(--panel);padding:16px 18px;font-size:11px;margin-top:18px}
 
 /* light theme is the default */
 html:not([data-theme="dark"]),html:not([data-theme="dark"]) body,html:not([data-theme="dark"]) .page-shell{background:var(--bg);color:var(--text)}
@@ -236,11 +252,15 @@ html:not([data-theme="dark"]) .secondary-btn:hover{background:var(--text);color:
 
 @media(max-width:1050px){
   .city-grid{grid-template-columns:repeat(2,1fr)}
+  .city-member-grid{grid-template-columns:repeat(2,1fr)}
   .theme-toggle{margin-left:auto}.nav-actions{margin-left:0}.hamburger{margin-left:0}
 }
 @media(max-width:700px){
   .theme-toggle{width:38px;height:38px;flex-basis:38px;margin-left:auto}.hamburger{margin-left:0}
   .city-grid{grid-template-columns:1fr}.city-card{height:370px}
+  .cities-section .section-head{display:block}.cities-section .section-title{font-size:clamp(46px,14vw,68px)}.cities-section .section-head>.section-link{display:inline-block;margin-top:20px}
+  .role-guide-grid{grid-template-columns:1fr}.consent-box{padding:15px}
+  .city-profile-panel,.city-members-head{grid-template-columns:1fr}.city-network-summary{border-left:0;border-top:1px solid var(--line)}.city-member-grid{grid-template-columns:1fr}.city-members-head{margin-top:52px}.city-profile-copy h2{font-size:clamp(58px,21vw,92px)}
   html:not([data-theme="dark"]) .showcase-media::after{background:linear-gradient(180deg,transparent 62%,var(--bg-soft))}
 }
 

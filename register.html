@@ -17,7 +17,7 @@
     <div class="auth-layout">
       <div class="auth-visual">
         <img src="assets/images/auth-register.jpg" alt="Команда стартапу працює над спільним продуктом" fetchpriority="high">
-        <div class="auth-visual-copy"><h1>СТВОРІТЬ СВОЮ ПРОФЕСІЙНУ ПРИСУТНІСТЬ</h1><p>Оберіть профіль спеціаліста, компанії або стартапу. Один акаунт відкриває всю екосистему.</p></div>
+        <div class="auth-visual-copy"><h1>СТВОРІТЬ СВОЮ ПРОФЕСІЙНУ ПРИСУТНІСТЬ</h1><p>Оберіть роль, налаштуйте видимість профілю та самостійно вирішіть, що можна публікувати.</p></div>
       </div>
       <div class="auth-panel">
         <form class="auth-box" data-auth-form="register">
@@ -28,13 +28,32 @@
             <button class="oauth-btn" type="button" aria-disabled="true" title="Apple-вхід буде додано пізніше"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 12.8c0-2.7 2.2-4 2.3-4.1-1.3-1.9-3.3-2.1-4-2.1-1.7-.2-3.3 1-4.1 1-.8 0-2.1-1-3.5-1-1.8 0-3.5 1.1-4.4 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9s2.2.9 3.7.9c1.5 0 2.5-1.3 3.4-2.7 1-1.5 1.5-3 1.5-3.1-.1 0-3.4-1.3-3.4-5.3Z"/></svg>Apple</button>
           </div>
           <span class="oauth-hint">Apple-вхід - незабаром</span>
-          <div class="field" style="margin-top:22px"><label for="profile-type">Тип профілю</label><select id="profile-type" name="profileType"><option value="specialist">Спеціаліст / кандидат</option><option value="company">Компанія / роботодавець</option><option value="startup">Стартап / засновник</option><option value="expert">Експерт / ментор</option></select></div>
+          <div class="field" style="margin-top:22px"><label for="profile-type">Роль у мережі</label><select id="profile-type" name="profileType"><option value="specialist">Користувач / спеціаліст</option><option value="company">Компанія / роботодавець</option><option value="founder">Засновник / стартап</option><option value="recruiter">Рекрутер / HR</option><option value="investor">Інвестор / партнер</option><option value="mentor">Експерт / ментор</option><option value="community">Організатор спільноти</option></select></div>
+          <details class="role-guide">
+            <summary>Які ролі є на платформі?</summary>
+            <div class="role-guide-grid">
+              <p><strong>Публічні ролі</strong><span>Користувач, компанія, засновник, рекрутер, інвестор, ментор та організатор спільноти.</span></p>
+              <p><strong>Службові ролі</strong><span>Модератор, менеджер і супер адмін. Їх призначає адміністрація, самостійний вибір недоступний.</span></p>
+            </div>
+          </details>
           <div class="field"><label for="register-name">Ім'я або назва</label><input id="register-name" name="displayName" autocomplete="name" required placeholder="Ваше ім'я / компанія"></div>
           <div class="field"><label for="register-email">Email</label><input id="register-email" name="email" type="email" autocomplete="email" required placeholder="you@email.com"></div>
           <div class="field"><label for="register-password">Пароль</label><input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="Мінімум 8 символів"></div>
+          <div class="field"><label for="register-location">Основна локація</label><select id="register-location" name="locationCode" required><option value="">Оберіть місто</option><option value="kyiv">Київ, Україна</option><option value="warsaw">Варшава, Польща</option><option value="toronto">Торонто, Канада</option><option value="berlin">Берлін, Німеччина</option><option value="other">Інше місто</option></select></div>
+          <fieldset class="consent-box" data-consent-group>
+            <legend>Згода на публікацію</legend>
+            <p class="consent-intro">Оберіть усе разом або щонайменше один пункт. Налаштування можна змінити пізніше.</p>
+            <label class="consent-choice consent-choice-all"><input type="checkbox" data-consent-all><span><strong>Дозволити все</strong><small>Аватар, дані профілю та відображення у вибраній локації</small></span></label>
+            <div class="consent-options">
+              <label class="consent-choice"><input type="checkbox" name="publishAvatar" value="yes"><span><strong>Мій аватар</strong><small>Показувати фото профілю іншим користувачам</small></span></label>
+              <label class="consent-choice"><input type="checkbox" name="publishProfile" value="yes"><span><strong>Мої публічні дані</strong><small>Ім'я, роль, опис, навички та професійні контакти</small></span></label>
+              <label class="consent-choice"><input type="checkbox" name="publishMap" value="yes"><span><strong>Моя локація</strong><small>Показувати профіль або анонімну присутність у місті</small></span></label>
+            </div>
+            <p class="consent-status" data-consent-status aria-live="polite">Оберіть принаймні один дозвіл.</p>
+          </fieldset>
           <button class="primary-btn" type="submit">СТВОРИТИ АКАУНТ</button>
           <p class="form-note" data-form-note aria-live="polite"></p>
-          <p class="auth-meta">Реєструючись, ви погоджуєтеся з умовами платформи.</p>
+          <p class="auth-meta">Реєструючись, ви погоджуєтеся з умовами платформи. Публікується лише те, що ви дозволили вище.</p>
         </form>
       </div>
     </div>
