@@ -68,3 +68,33 @@ Most business opportunities are fragmented across:
 
 ```text
 Profile → Need / Offer → Search / Opportunities → Match → Why this match → Connect / Apply / Request Intro
+```
+
+---
+
+## 🛠 Запуск локально (гілка `Max_Auth_Profile_Catalog`)
+
+**Стек:** frontend — React + Tailwind CSS + TypeScript (Vite) · backend — NestJS + TypeScript (TypeORM).
+База за замовчуванням — локальний файл SQLite (`backend/data/`), нічого додатково встановлювати не треба.
+Для PostgreSQL задайте `DATABASE_URL` (див. `backend/.env.example`).
+
+Потрібен **Node.js 20+**.
+
+```bash
+npm run setup     # встановити залежності (корінь + backend + frontend)
+npm run dev       # API на http://localhost:3000/api, сайт на http://localhost:5173
+```
+
+При першому запуску база заповнюється демо-даними. Демо-акаунт: `olena@demo.bn` / `demo1234`.
+`npm run seed:reset` — перестворити базу з демо-даними.
+
+### Що реалізовано (задачі Max)
+
+| Модуль | Сторінка | API |
+|---|---|---|
+| Реєстрація та вхід | `/register`, `/login` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` (JWT) |
+| Профіль людини: ім'я, місто, роль, навички, опис | `/people/:id`, `/profile/edit` | `GET /api/users/:id`, `PATCH /api/users/me` |
+| Каталог: люди, компанії, можливості одним списком | `/catalog` (вкладки за типом) | `GET /api/catalog?type=person\|company\|opportunity`, `GET /api/catalog/counts` |
+| Список ФОП | `/fop` | `GET /api/fop` |
+
+Компанії та можливості в каталозі поки беруться з демо-даних — їх створення/сторінки — окремі задачі (Профіль компанії, Можливості).
