@@ -19,9 +19,9 @@ BusinessNavigator — ваша мережа бізнес-можливостей 
 - login.html / register.html — авторизація та реєстрація
 
 ## Технології
-Чисті HTML + CSS + JavaScript, Quantico, inline SVG icons, responsive layout, світла тема за замовчуванням із перемикачем, локальні photo assets та mobile menu.
+Чисті HTML + CSS + JavaScript, Firebase Authentication + Analytics, Quantico, inline SVG icons, responsive layout, світла тема за замовчуванням із перемикачем, локальні photo assets та mobile menu.
 
-Форми та social login — UI MVP. Для production потрібно підключити backend/auth, database, пошук, профілі, вакансії, messaging та moderation.
+Google sign-in та email/password форми підключені до Firebase-проєкту `ukranianbusinessnavigator`. Для роботи Google-входу production-домен має бути в Firebase Authentication → Settings → Authorized domains. Для повної платформи ще потрібні database, пошук, редагування профілів, вакансії, messaging та moderation.
 
 ## Фото
 

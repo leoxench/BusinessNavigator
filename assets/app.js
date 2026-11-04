@@ -56,4 +56,8 @@
       if(note){note.textContent='Дякуємо! MVP-форма працює локально. Підключіть ваш API або Firebase/Supabase для продакшну.';}
     });
   });
+
+  import('./firebase-auth.js').catch((error)=>{
+    console.error('Firebase Auth initialization failed',error);
+  });
 })();
