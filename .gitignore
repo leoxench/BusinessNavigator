@@ -4,3 +4,4 @@ node_modules/
 backend/
 frontend/
 businessnavigator-mvp-preview/
+.env*
