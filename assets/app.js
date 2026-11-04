@@ -1,5 +1,5 @@
 (function(){
-  const themeKey = 'businessnavigator-theme';
+  const themeKey = 'businessnavigator-theme-v2';
   const root = document.documentElement;
   const savedTheme = localStorage.getItem(themeKey);
   root.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
