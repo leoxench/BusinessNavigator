@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Business Match у BusinessNavigator: свайпайте кандидатів і бізнес-партнерів, знаходьте взаємні інтереси та переглядайте публічні бізнеси на мапі.">
+  <title>Business Match - BusinessNavigator</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-shell match-page">
+    <nav class="site-nav">
+      <a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a>
+      <div class="nav-links"><a href="about.html">Про платформу</a><a href="jobs.html">Вакансії</a><div class="nav-group"><a href="projects.html" aria-haspopup="true">Проєкти</a><div class="nav-submenu"><a href="projects.html#invest">Інвестувати</a><a href="projects.html#join">Приєднатися</a></div></div><div class="nav-group"><a href="startups.html" aria-haspopup="true">Стартапи</a><div class="nav-submenu"><a href="startups.html#invest">Інвестувати</a><a href="startups.html#join">Приєднатися</a></div></div><a href="companies.html">Компанії</a><a href="fops.html">ФОПи</a><a href="match.html" aria-current="page">Business Match</a><a href="learning.html">Навчання</a><a href="stories.html">Історії</a></div>
+      <div class="nav-actions"><a class="auth-link" href="login.html">Увійти</a><a class="contact-btn" href="register.html"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Приєднатися</a></div>
+      <button class="hamburger" data-menu-toggle aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu"><a href="about.html">ПРО ПЛАТФОРМУ</a><a href="jobs.html">ВАКАНСІЇ</a><div class="mobile-menu-group"><a href="projects.html">ПРОЄКТИ</a><div><a href="projects.html#invest">ІНВЕСТУВАТИ</a><a href="projects.html#join">ПРИЄДНАТИСЯ</a></div></div><div class="mobile-menu-group"><a href="startups.html">СТАРТАПИ</a><div><a href="startups.html#invest">ІНВЕСТУВАТИ</a><a href="startups.html#join">ПРИЄДНАТИСЯ</a></div></div><a href="companies.html">КОМПАНІЇ</a><a href="fops.html">ФОПИ</a><a href="match.html">BUSINESS MATCH</a><a href="learning.html">НАВЧАННЯ</a><a href="stories.html">ІСТОРІЇ</a><a href="login.html">УВІЙТИ</a><a href="register.html">РЕЄСТРАЦІЯ</a></div>
+
+    <header class="match-hero">
+      <div><h1>BUSINESS MATCH</h1><p>Знаходьте кандидатів, співзасновників і бізнес-партнерів. Свайп праворуч означає інтерес, ліворуч - пропустити.</p></div>
+      <div class="match-hero-stats" aria-label="Можливості Business Match"><span><strong>01</strong> Кандидати</span><span><strong>02</strong> Партнери</span><span><strong>03</strong> Бізнеси на мапі</span></div>
+    </header>
+
+    <main data-match-app>
+      <section class="match-section" aria-labelledby="match-deck-title">
+        <div class="match-section-head">
+          <div><h2 id="match-deck-title">СВАЙПАЙТЕ ТИХ, З КИМ Є СЕНС ГОВОРИТИ</h2><p>Виберіть тип пошуку. Рішення зберігаються тільки у вашому браузері, доки ви не надішлете запит на контакт.</p></div>
+          <div class="match-mode-switch" role="group" aria-label="Тип профілів"><button type="button" class="active" data-match-mode="candidate">КАНДИДАТИ</button><button type="button" data-match-mode="partner">БІЗНЕС-ПАРТНЕРИ</button></div>
+        </div>
+
+        <div class="match-workspace">
+          <div class="swipe-panel">
+            <div class="swipe-panel-top"><strong data-match-mode-label>Кандидати</strong><span data-match-progress aria-live="polite">1 / 4</span></div>
+            <div class="swipe-deck" data-swipe-deck aria-label="Картки для вибору"></div>
+            <div class="swipe-actions" aria-label="Дії з профілем">
+              <button type="button" class="swipe-action swipe-pass" data-swipe-action="pass"><span aria-hidden="true">×</span>ПРОПУСТИТИ</button>
+              <button type="button" class="swipe-action swipe-save" data-swipe-action="save"><span aria-hidden="true">☆</span>ЗБЕРЕГТИ</button>
+              <button type="button" class="swipe-action swipe-like" data-swipe-action="like"><span aria-hidden="true">♥</span>ЦІКАВО</button>
+            </div>
+            <p class="swipe-hint">Працює мишею, пальцем і клавішами ← →</p>
+          </div>
+
+          <aside class="match-sidebar">
+            <div class="match-sidebar-card"><h3>ЯК ПРАЦЮЄ ЗБІГ</h3><p>Якщо обидві сторони зацікавлені, відкривається запит на контакт. Email та приватні дані не показуються без взаємної згоди.</p><a class="secondary-btn" href="register.html">НАЛАШТУВАТИ ПРОФІЛЬ</a></div>
+            <div class="match-sidebar-card"><div class="match-log-head"><h3>ОСТАННІ РІШЕННЯ</h3><button type="button" data-match-undo disabled>ПОВЕРНУТИ</button></div><div class="match-log" data-match-log><p>Ще немає рішень.</p></div></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="match-map-section" aria-labelledby="business-map-title">
+        <div class="match-section-head">
+          <div><h2 id="business-map-title">БІЗНЕСИ НА МАПІ</h2><p>Переглядайте компанії за містом і напрямом. Маркери показують лише приблизну зону, а не точну адресу.</p></div>
+          <div class="map-filters">
+            <label>Місто<select data-map-city><option value="all">Усі міста</option><option value="kyiv">Київ</option><option value="warsaw">Варшава</option><option value="berlin">Берлін</option><option value="toronto">Торонто</option></select></label>
+            <label>Напрям<select data-map-sector><option value="all">Усі напрями</option><option value="tech">Tech</option><option value="export">Експорт</option><option value="finance">Фінанси</option><option value="creative">Креатив</option><option value="education">Освіта</option><option value="logistics">Логістика</option></select></label>
+          </div>
+        </div>
+        <div class="business-map-layout">
+          <div class="business-map" id="business-map" role="application" aria-label="Мапа публічних бізнесів"><div class="map-loading">ЗАВАНТАЖУЄМО МАПУ...</div></div>
+          <aside class="business-map-list" data-map-list aria-live="polite"></aside>
+        </div>
+        <p class="map-privacy">На мапі відображаються тільки профілі, які дозволили публікацію даних і локації. Власник профілю може відкликати дозвіл у будь-який момент.</p>
+      </section>
+    </main>
+
+    <div class="match-modal" data-match-modal hidden>
+      <div class="match-modal-backdrop" data-match-close></div>
+      <section class="match-modal-card" role="dialog" aria-modal="true" aria-labelledby="match-modal-title">
+        <button type="button" class="match-modal-close" data-match-close aria-label="Закрити">×</button>
+        <div class="match-modal-mark" aria-hidden="true">♥</div>
+        <h2 id="match-modal-title">ЦЕ ВЗАЄМНИЙ ІНТЕРЕС</h2>
+        <p data-match-modal-copy>Можна надіслати запит на контакт.</p>
+        <div><button type="button" class="primary-btn" data-match-request>НАДІСЛАТИ ЗАПИТ</button><button type="button" class="secondary-btn" data-match-close>ПРОДОВЖИТИ</button></div>
+        <p class="match-request-note" data-match-request-note aria-live="polite"></p>
+      </section>
+    </div>
+
+    <footer class="footer"><div><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a><p style="margin-top:16px">Українська професійна мережа для бізнесу, кар'єри, стартапів, знань і нових можливостей.</p></div><div class="footer-links"><a href="about.html">Про платформу</a><a href="projects.html">Проєкти</a><a href="startups.html">Стартапи</a><a href="companies.html">Компанії</a><a href="fops.html">ФОПи</a><a href="match.html">Business Match</a><a href="cities.html">Міста</a><a href="contact.html">Контакти</a><a href="login.html">Увійти</a><a href="register.html">Реєстрація</a></div></footer>
+  </div>
+  <script src="assets/app.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/match.js"></script>
+</body>
+</html>
