@@ -1,4 +1,31 @@
 (function(){
+  const themeKey = 'businessnavigator-theme';
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem(themeKey);
+  root.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+
+  function syncThemeButton(button){
+    const isDark = root.dataset.theme === 'dark';
+    button.textContent = isDark ? '☀' : '☾';
+    button.setAttribute('aria-label', isDark ? 'Увімкнути світлу тему' : 'Увімкнути темну тему');
+    button.setAttribute('title', isDark ? 'Світла тема' : 'Темна тема');
+  }
+
+  document.querySelectorAll('.site-nav').forEach(nav=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='theme-toggle';
+    button.setAttribute('data-theme-toggle','');
+    syncThemeButton(button);
+    const navActions=nav.querySelector('.nav-actions');
+    nav.insertBefore(button,navActions||nav.querySelector('.hamburger'));
+    button.addEventListener('click',()=>{
+      root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+      localStorage.setItem(themeKey,root.dataset.theme);
+      document.querySelectorAll('[data-theme-toggle]').forEach(syncThemeButton);
+    });
+  });
+
   const videos = Array.from(document.querySelectorAll('video[data-autoplay]'));
 
   function safePlay(video){

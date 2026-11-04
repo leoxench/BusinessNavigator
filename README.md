@@ -1,6 +1,6 @@
 # BusinessNavigator MVP
 
-Преміальний black-theme MVP української професійної мережі — концепція "українського LinkedIn".
+BusinessNavigator — ваша мережа бізнес-можливостей із каталогом компаній, вакансій, кандидатів, стартапів, знань та професійних зв’язків.
 
 ## Сторінки
 - index.html — велика головна сторінка
@@ -19,7 +19,7 @@
 - login.html / register.html — авторизація та реєстрація
 
 ## Технології
-Чисті HTML + CSS + JavaScript, Quantico, inline SVG icons, responsive layout, локальні photo assets та mobile menu.
+Чисті HTML + CSS + JavaScript, Quantico, inline SVG icons, responsive layout, світла тема за замовчуванням із перемикачем, локальні photo assets та mobile menu.
 
 Форми та social login — UI MVP. Для production потрібно підключити backend/auth, database, пошук, профілі, вакансії, messaging та moderation.
 
