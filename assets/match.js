@@ -394,8 +394,29 @@
       return;
     }
     container.replaceChildren();
-    map = window.L.map(container, { scrollWheelZoom:false, zoomControl:true }).setView([50.4, 19.2], 5);
+    map = window.L.map(container, {
+      scrollWheelZoom:true,
+      zoomControl:true,
+      touchZoom:true,
+      doubleClickZoom:true,
+      boxZoom:true,
+      keyboard:true,
+      minZoom:3,
+      maxZoom:18,
+      wheelDebounceTime:24,
+      wheelPxPerZoomLevel:80
+    }).setView([50.4, 19.2], 5);
     window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:18, attribution:'&copy; OpenStreetMap contributors' }).addTo(map);
+    const zoomInButton = container.querySelector('.leaflet-control-zoom-in');
+    const zoomOutButton = container.querySelector('.leaflet-control-zoom-out');
+    if (zoomInButton) {
+      zoomInButton.setAttribute('aria-label', 'Збільшити масштаб карти');
+      zoomInButton.setAttribute('title', 'Збільшити масштаб карти');
+    }
+    if (zoomOutButton) {
+      zoomOutButton.setAttribute('aria-label', 'Зменшити масштаб карти');
+      zoomOutButton.setAttribute('title', 'Зменшити масштаб карти');
+    }
     markerLayer = window.L.layerGroup().addTo(map);
     updateMap();
   }
