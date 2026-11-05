@@ -8,7 +8,8 @@
   <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body class="home-page">
+  <div class="home-scroll-progress" aria-hidden="true"><span></span></div>
   <main>
     <section class="hero" id="home">
       <img class="hero-photo" src="assets/images/team-meeting.jpg" alt="Команда професіоналів під час стратегічної зустрічі" width="3840" height="2563" fetchpriority="high">
@@ -119,9 +120,25 @@
       <div class="metrics"><div class="metric"><strong>1</strong><span>Профіль замість 10 сервісів</span></div><div class="metric"><strong>6</strong><span>Ключових напрямів</span></div><div class="metric"><strong>24/7</strong><span>Професійна мережа</span></div><div class="metric"><strong>UA</strong><span>Глобальна українська спільнота</span></div></div>
     </section>
 
+    <section class="section alt home-scroll-story" aria-labelledby="home-story-title">
+      <div class="home-scroll-layout">
+        <div class="home-scroll-copy">
+          <h2 class="section-title" id="home-story-title">ВІД ЗНАЙОМСТВА ДО СПІЛЬНОЇ СПРАВИ</h2>
+          <p class="section-copy">BusinessNavigator допомагає побачити людей і компанії поруч, оцінити спільні інтереси та перейти до розмови.</p>
+          <a class="primary-btn" href="match.html">ПОЧАТИ З BUSINESS MATCH <span class="trail"></span></a>
+        </div>
+        <div class="home-scroll-steps">
+          <a class="home-scroll-step" href="cities.html"><strong>01</strong><div><h3>ДИВІТЬСЯ, ХТО ПОРУЧ</h3><p>Знайдіть компанії, фахівців і бізнеси у своєму місті або новій локації.</p></div><span>ВІДКРИТИ МІСТА →</span></a>
+          <a class="home-scroll-step" href="match.html"><strong>02</strong><div><h3>ЗНАЙДІТЬ ЗБІГ</h3><p>Оцініть спільні інтереси, цілі та формат співпраці у Business Match.</p></div><span>ПЕРЕЙТИ ДО MATCH →</span></a>
+          <a class="home-scroll-step" href="contact.html"><strong>03</strong><div><h3>ПОЧНІТЬ РОЗМОВУ</h3><p>Збережіть контакт, зв'яжіться напряму та перетворіть збіг на спільний проєкт.</p></div><span>ЗВ'ЯЗАТИСЯ →</span></a>
+        </div>
+      </div>
+    </section>
+
     <section class="section soft"><div class="startup-strip"><div><h2>СТВОРІТЬ СВІЙ ПРОФЕСІЙНИЙ ПРОСТІР</h2><p>Профіль спеціаліста, сторінка компанії, вакансії, стартап або експертний контент - все починається з одного акаунта.</p></div><div class="startup-actions"><a class="primary-btn" href="register.html">ЗАРЕЄСТРУВАТИСЯ</a><a class="secondary-btn" href="login.html">УВІЙТИ</a></div></div></section>
   </main>
   <footer class="footer"><div><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a><p style="margin-top:16px">Українська професійна мережа для бізнесу, кар'єри, стартапів, знань і нових можливостей.</p></div><div class="footer-links"><a href="about.html">Про платформу</a><a href="projects.html">Проєкти</a><a href="startups.html">Стартапи</a><a href="companies.html">Компанії</a><a href="fops.html">ФОПи</a><a href="match.html">Business Match</a><a href="cities.html">Міста</a><a href="contact.html">Контакти</a><a href="login.html">Увійти</a><a href="register.html">Реєстрація</a></div></footer>
   <script src="assets/app.js"></script>
+  <script src="assets/home-motion.js"></script>
 </body>
 </html>
