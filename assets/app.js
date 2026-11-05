@@ -49,11 +49,39 @@
     });
   });
 
-  document.querySelectorAll('[data-demo-form]').forEach(form=>{
-    form.addEventListener('submit',(e)=>{
-      e.preventDefault();
+  document.querySelectorAll('[data-formspree-form]').forEach(form=>{
+    form.addEventListener('submit',async (event)=>{
+      event.preventDefault();
+      if(!form.reportValidity()) return;
+
       const note=form.querySelector('[data-form-note]');
-      if(note){note.textContent='Дякуємо! MVP-форма працює локально. Підключіть ваш API або Firebase/Supabase для продакшну.';}
+      const submit=form.querySelector('[type="submit"]');
+      const idleText=submit?.textContent||'НАДІСЛАТИ';
+      if(note){note.textContent='Надсилаємо повідомлення...';note.dataset.state='';}
+      if(submit){submit.disabled=true;submit.textContent='НАДСИЛАЄМО...';}
+      form.setAttribute('aria-busy','true');
+
+      try{
+        const response=await fetch(form.action,{
+          method:'POST',
+          body:new FormData(form),
+          headers:{Accept:'application/json'}
+        });
+        const payload=await response.json().catch(()=>({}));
+        if(!response.ok){
+          const message=Array.isArray(payload.errors)
+            ? payload.errors.map(error=>error.message).filter(Boolean).join(' ')
+            : '';
+          throw new Error(message||'Не вдалося надіслати повідомлення. Спробуйте ще раз.');
+        }
+        form.reset();
+        if(note){note.textContent='Дякуємо! Повідомлення надіслано. Ми зв’яжемося з вами найближчим часом.';note.dataset.state='success';}
+      }catch(error){
+        if(note){note.textContent=error.message||'Не вдалося надіслати повідомлення. Спробуйте ще раз.';note.dataset.state='error';}
+      }finally{
+        if(submit){submit.disabled=false;submit.textContent=idleText;}
+        form.removeAttribute('aria-busy');
+      }
     });
   });
 
