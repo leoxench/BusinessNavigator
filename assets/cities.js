@@ -148,12 +148,16 @@
 
     const privacyNote = directory.querySelector('[data-city-privacy-note]');
     if (!localProfile) {
-      privacyNote.textContent = 'Ваш профіль ще не доданий. Під час реєстрації можна окремо дозволити аватар, публічні дані та відображення на мапі.';
+      privacyNote.textContent = '';
+      privacyNote.hidden = true;
     } else if (localIsPublic) {
+      privacyNote.hidden = false;
       privacyNote.textContent = 'Ваш профіль показано у цій локації відповідно до вибраних дозволів.';
     } else if (localInCity) {
+      privacyNote.hidden = false;
       privacyNote.textContent = 'Ваша присутність врахована у загальній кількості анонімно. Ім’я та профіль не показуються без окремої згоди.';
     } else {
+      privacyNote.hidden = false;
       privacyNote.textContent = 'Ваш профіль не показується у цій локації. Відображення залежить від вибраного міста та дозволу на мапу.';
     }
 
