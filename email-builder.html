@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Email builder BusinessNavigator: конструктор листів із готових блоків з експортом у HTML.">
+  <title>Email builder - BusinessNavigator</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/email-builder.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="site-nav">
+      <a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a>
+      <div class="nav-links"><a href="about.html">Про платформу</a><a href="jobs.html">Вакансії</a><div class="nav-group"><a href="projects.html" aria-haspopup="true">Проєкти</a><div class="nav-submenu"><a href="projects.html#invest">Інвестувати</a><a href="projects.html#join">Приєднатися</a></div></div><div class="nav-group"><a href="startups.html" aria-haspopup="true">Стартапи</a><div class="nav-submenu"><a href="startups.html#invest">Інвестувати</a><a href="startups.html#join">Приєднатися</a></div></div><a href="companies.html">Компанії</a><a href="match.html#map">Карта</a><a href="match.html">Business Match</a><a href="learning.html">Знання</a><a href="stories.html">Історії</a></div>
+      <div class="nav-actions"><a class="auth-link" href="login.html">Увійти</a><a class="contact-btn" href="register.html"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Приєднатися</a></div>
+      <button class="hamburger" data-menu-toggle aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu"><a href="about.html">ПРО ПЛАТФОРМУ</a><a href="jobs.html">ВАКАНСІЇ</a><div class="mobile-menu-group"><a href="projects.html">ПРОЄКТИ</a><div><a href="projects.html#invest">ІНВЕСТУВАТИ</a><a href="projects.html#join">ПРИЄДНАТИСЯ</a></div></div><div class="mobile-menu-group"><a href="startups.html">СТАРТАПИ</a><div><a href="startups.html#invest">ІНВЕСТУВАТИ</a><a href="startups.html#join">ПРИЄДНАТИСЯ</a></div></div><a href="companies.html">КОМПАНІЇ</a><a href="match.html#map">КАРТА</a><a href="match.html">BUSINESS MATCH</a><a href="learning.html">ЗНАННЯ</a><a href="stories.html">ІСТОРІЇ</a><a href="login.html">УВІЙТИ</a><a href="register.html">РЕЄСТРАЦІЯ</a></div>
+
+    <section class="page-hero"><h1>EMAIL BUILDER</h1><p>Збирайте листи для партнерів, клієнтів і ФОП із готових блоків — без коду. Готовий HTML сумісний з Gmail, Outlook та Apple Mail.</p></section>
+
+    <section class="section eb-section" data-email-builder>
+      <div class="eb-bar">
+        <div class="eb-title">
+          <div class="logo-box" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></div>
+          <div>
+            <input class="eb-name" data-eb-name aria-label="Назва шаблону" maxlength="120">
+            <span class="eb-status" data-eb-status>чернетка</span>
+          </div>
+        </div>
+        <div class="eb-seg">
+          <button type="button" class="eb-icon-btn" data-eb-undo title="Скасувати (Ctrl+Z)" aria-label="Скасувати">↶</button>
+          <button type="button" class="eb-icon-btn" data-eb-redo title="Повторити (Ctrl+Shift+Z)" aria-label="Повторити">↷</button>
+        </div>
+        <div class="eb-seg">
+          <button type="button" data-eb-view="edit" aria-pressed="true">Редактор</button>
+          <button type="button" data-eb-view="preview" aria-pressed="false">Перегляд</button>
+        </div>
+        <div class="eb-export" data-eb-export-wrap>
+          <button type="button" class="secondary-btn" data-eb-export aria-haspopup="true">ЕКСПОРТ ▾</button>
+          <div class="eb-menu" data-eb-export-menu hidden>
+            <button type="button" data-eb-exp="copy-html">Копіювати HTML листа</button>
+            <button type="button" data-eb-exp="download-html">Завантажити .html</button>
+            <button type="button" data-eb-exp="copy-text">Копіювати текстову версію</button>
+            <hr>
+            <button type="button" data-eb-exp="download-json">Експорт шаблону (JSON)</button>
+            <button type="button" data-eb-exp="import-json">Імпорт шаблону (JSON)…</button>
+          </div>
+          <input type="file" accept="application/json,.json" data-eb-import-file hidden>
+        </div>
+        <button type="button" class="secondary-btn" data-eb-save-new hidden>ЗБЕРЕГТИ ЯК НОВИЙ</button>
+        <button type="button" class="primary-btn" data-eb-save>ЗБЕРЕГТИ</button>
+      </div>
+
+      <div class="eb-layout">
+        <aside class="eb-panel" aria-label="Блоки та шаблони">
+          <div class="eb-seg">
+            <button type="button" data-eb-sidetab="blocks" aria-pressed="true">Блоки</button>
+            <button type="button" data-eb-sidetab="templates" aria-pressed="false">Шаблони</button>
+          </div>
+          <div data-eb-side></div>
+        </aside>
+        <div data-eb-stage></div>
+        <aside class="eb-panel" data-eb-inspector aria-label="Налаштування"></aside>
+      </div>
+      <div class="eb-toast" data-eb-toast role="status" hidden></div>
+    </section>
+
+    <footer class="footer"><div><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a><p style="margin-top:16px">Українська професійна мережа для бізнесу, кар'єри, стартапів, знань і нових можливостей.</p></div><div class="footer-links"><a href="about.html">Про платформу</a><a href="projects.html">Проєкти</a><a href="startups.html">Стартапи</a><a href="companies.html">Компанії</a><a href="match.html#map">Карта</a><a href="match.html">Business Match</a><a href="cities.html">Міста</a><a href="contact.html">Контакти</a><a href="login.html">Увійти</a><a href="register.html">Реєстрація</a></div></footer>
+  </div>
+  <script src="assets/app.js"></script>
+  <script src="assets/email-render.js"></script>
+  <script src="assets/email-builder.js"></script>
+</body>
+</html>

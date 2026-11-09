@@ -1,0 +1,44 @@
+/* Каталог ФОП з ЄДР (fops.html) — використовує токени теми з styles.css */
+.fr-section .section-head{align-items:flex-end}
+.fr-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.fr-stat{padding:20px 22px;border:1px solid var(--line);background:var(--panel)}
+.fr-stat b{display:block;font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;color:var(--text)}
+.fr-stat span{display:block;margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+.fr-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 190px 190px auto;gap:10px;align-items:end;margin-bottom:14px}
+.fr-toolbar label{display:grid;gap:7px;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fr-toolbar input[type=search],.fr-toolbar select{width:100%;border:1px solid var(--line-strong);background:var(--panel);color:var(--text);padding:14px 15px;outline:none;font-size:14px;border-radius:0}
+.fr-toolbar input[type=search]:focus,.fr-toolbar select:focus{border-color:var(--accent)}
+.fr-check{display:flex!important;align-items:center;gap:9px;height:49px;padding:0 14px;border:1px solid var(--line-strong);background:var(--panel);cursor:pointer;white-space:nowrap;color:var(--text)!important}
+.fr-check input{accent-color:var(--accent);width:16px;height:16px;margin:0}
+
+.fr-letters{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:22px}
+.fr-letters button{min-width:34px;height:34px;border:1px solid var(--line);background:transparent;color:var(--text);font-weight:700;font-size:12px;cursor:pointer;transition:.18s ease}
+.fr-letters button:hover{border-color:var(--accent);color:var(--accent)}
+.fr-letters button[aria-pressed=true]{background:var(--accent);border-color:var(--accent-border);color:#051014}
+
+.fr-summary{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fr-summary b{color:var(--text)}
+.fr-reset{background:none;border:0;padding:0;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px;cursor:pointer}
+
+.fr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.fr-card{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start;padding:18px;border:1px solid var(--line);background:var(--panel);transition:.2s ease}
+.fr-card:hover{border-color:var(--accent-border);transform:translateY(-2px)}
+.fr-card .logo-box{width:48px;height:48px;font-size:13px}
+.fr-card h3{font-size:15px;line-height:1.25;text-transform:none;letter-spacing:0}
+.fr-card p{font-size:11px;margin-top:5px;line-height:1.5}
+.fr-card .tags{margin-top:10px}
+.fr-tag-ok{border-color:var(--accent-border)!important;color:var(--accent)!important}
+.fr-id{font-size:10px;color:var(--muted-2);letter-spacing:.04em}
+
+.fr-more{display:flex;justify-content:center;margin-top:26px}
+.fr-more [hidden]{display:none!important}
+.fr-empty,.fr-loading{padding:56px 24px;border:1px dashed var(--line-strong);text-align:center;color:var(--muted);font-size:13px}
+.fr-loading{animation:fr-pulse 1.2s ease-in-out infinite}
+@keyframes fr-pulse{50%{opacity:.45}}
+.fr-source{margin-top:28px;font-size:11px;line-height:1.7;color:var(--muted-2);max-width:900px}
+.fr-source a{color:var(--accent);border-bottom:1px solid currentColor}
+mark.fr-hl{background:rgba(21,188,223,.22);color:inherit;padding:0 1px}
+
+@media(max-width:1100px){.fr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fr-toolbar{grid-template-columns:1fr 1fr}.fr-toolbar .fr-search{grid-column:1/-1}}
+@media(max-width:640px){.fr-grid,.fr-stats{grid-template-columns:1fr}.fr-toolbar{grid-template-columns:1fr}.fr-check{height:46px}}

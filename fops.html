@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/fop-registry.css">
 </head>
 <body>
   <div class="page-shell">
@@ -20,11 +21,51 @@
     </nav>
     <div class="mobile-menu"><a href="about.html">ПРО ПЛАТФОРМУ</a><a href="jobs.html">ВАКАНСІЇ</a><div class="mobile-menu-group"><a href="projects.html">ПРОЄКТИ</a><div><a href="projects.html#invest">ІНВЕСТУВАТИ</a><a href="projects.html#join">ПРИЄДНАТИСЯ</a></div></div><div class="mobile-menu-group"><a href="startups.html">СТАРТАПИ</a><div><a href="startups.html#invest">ІНВЕСТУВАТИ</a><a href="startups.html#join">ПРИЄДНАТИСЯ</a></div></div><a href="companies.html">КОМПАНІЇ</a><a href="match.html#map">КАРТА</a><a href="match.html">BUSINESS MATCH</a><a href="learning.html">ЗНАННЯ</a><a href="stories.html">ІСТОРІЇ</a><a href="login.html">УВІЙТИ</a><a href="register.html">РЕЄСТРАЦІЯ</a></div>
 
-    <section class="page-hero"><h1>ФОПИ ТА НЕЗАЛЕЖНІ СПЕЦІАЛІСТИ</h1><p>Знаходьте перевірених виконавців, консультантів і невеликі професійні команди для конкретних бізнес-завдань.</p></section>
+    <section class="page-hero"><h1>ФОПИ ТА НЕЗАЛЕЖНІ СПЕЦІАЛІСТИ</h1><p>Знаходьте перевірених виконавців, консультантів і невеликі професійні команди для конкретних бізнес-завдань — серед них справжні ФОП з державного реєстру.</p></section>
+    <section class="section fr-section" id="registry" data-fop-registry data-src="data/fops/">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">РЕЄСТР ФОП</h2>
+          <p class="section-copy" style="margin-top:16px">Справжні фізичні особи-підприємці з Єдиного державного реєстру — нові реєстрації за останні місяці. Дані станом на <b data-fr-date>…</b>.</p>
+        </div>
+        <a class="section-link" href="#registry-source">ПРО ДЖЕРЕЛО</a>
+      </div>
+
+      <div class="fr-stats">
+        <div class="fr-stat"><b data-fr-total>—</b><span>Зареєстрованих ФОП у каталозі</span></div>
+        <div class="fr-stat"><b data-fr-tax>—</b><span>На обліку в ДПС</span></div>
+        <div class="fr-stat"><b data-fr-period>—</b><span>Період реєстрації</span></div>
+      </div>
+
+      <div class="fr-toolbar">
+        <label class="fr-search">Пошук за ПІБ
+          <input type="search" data-fr-search placeholder="Прізвище або ПІБ, напр. «Коваленко Олена»" autocomplete="off">
+        </label>
+        <label>Місяць реєстрації
+          <select data-fr-month><option value="">Усі місяці</option></select>
+        </label>
+        <label>Сортування
+          <select data-fr-sort>
+            <option value="newest">Спершу нові</option>
+            <option value="oldest">Спершу давніші</option>
+            <option value="name">За алфавітом</option>
+          </select>
+        </label>
+        <label class="fr-check"><input type="checkbox" data-fr-taxonly> На обліку в ДПС</label>
+      </div>
+
+      <div class="fr-letters" data-fr-letters aria-label="Прізвища за літерою"></div>
+      <div class="fr-summary" data-fr-summary></div>
+      <div class="fr-grid" data-fr-grid><div class="fr-loading" style="grid-column:1/-1">Завантаження реєстру…</div></div>
+      <div class="fr-more"><button type="button" class="secondary-btn" data-fr-more hidden>ПОКАЗАТИ ЩЕ</button></div>
+
+      <p class="fr-source" id="registry-source">Джерело: відкриті дані Міністерства юстиції України — <a href="https://data.gov.ua/dataset/03cc1239-3988-4451-aa0d-aadb77448714" target="_blank" rel="noopener">«Єдиний державний реєстр юридичних осіб, фізичних осіб-підприємців та громадських формувань»</a>, ліцензія CC BY 4.0. Через обмеження воєнного часу у відкритому наборі публікуються лише ПІБ, стан, дата реєстрації та облік у ДПС — адреси, КВЕД і РНОКПП недоступні. Актуальну виписку можна отримати на <a href="https://usr.minjust.gov.ua/" target="_blank" rel="noopener">usr.minjust.gov.ua</a>.</p>
+    </section>
     <section class="section" style="padding-top:34px"><div class="section-head"><div><h2 class="section-title">ПОСЛУГИ ДЛЯ БІЗНЕСУ</h2><p class="section-copy">Профіль ФОПа може містити спеціалізацію, портфоліо, країну роботи, мови, формат співпраці та контакти.</p></div><a class="primary-btn" href="register.html">ДОДАТИ ПРОФІЛЬ ФОПА</a></div><div class="module-grid"><div class="module-card"><div><h3>РОЗРОБКА</h3><p>Вебсайти, застосунки, автоматизація, інтеграції та технічний супровід.</p></div></div><div class="module-card"><div><h3>ДИЗАЙН</h3><p>Брендинг, продуктова графіка, UX, презентації та візуальні системи.</p></div></div><div class="module-card"><div><h3>МАРКЕТИНГ</h3><p>Стратегія, реклама, контент, комунікації та вихід на нові ринки.</p></div></div><div class="module-card"><div><h3>ФІНАНСИ</h3><p>Бухгалтерія, фінансове планування, аналітика та бізнес-консультації.</p></div></div><div class="module-card"><div><h3>ПРАВО</h3><p>Договори, реєстрація бізнесу, інтелектуальна власність та комплаєнс.</p></div></div><div class="module-card"><div><h3>ОСВІТА</h3><p>Менторство, корпоративне навчання, мовні й професійні програми.</p></div></div></div></section>
 
     <footer class="footer"><div><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/businessnavigator-compass.png" alt=""></span><span class="brand-word">BusinessNavigator</span></a><p style="margin-top:16px">Українська професійна мережа для бізнесу, кар'єри, стартапів, знань і нових можливостей.</p></div><div class="footer-links"><a href="about.html">Про платформу</a><a href="projects.html">Проєкти</a><a href="startups.html">Стартапи</a><a href="companies.html">Компанії</a><a href="match.html#map">Карта</a><a href="match.html">Business Match</a><a href="cities.html">Міста</a><a href="contact.html">Контакти</a><a href="login.html">Увійти</a><a href="register.html">Реєстрація</a></div></footer>
   </div>
   <script src="assets/app.js"></script>
+  <script src="assets/fop-registry.js" defer></script>
 </body>
 </html>
