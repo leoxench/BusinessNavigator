@@ -5,4 +5,3 @@ backend/
 frontend/
 businessnavigator-mvp-preview/
 .env*
-.cache/
