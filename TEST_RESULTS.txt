@@ -1,0 +1,14 @@
+Backend handler + temporary SQLite tests
+PASS: worker sends application
+PASS: duplicate blocked
+PASS: company receives application
+PASS: other company cannot see application
+PASS: other company cannot reply
+PASS: company replies
+PASS: worker receives status and message
+PASS: worker cannot reply as company
+PASS: close job
+PASS: closed job blocks applications
+PASS: closing preserves history
+
+React build and browser UI were not run in this environment.
