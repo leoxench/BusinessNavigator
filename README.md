@@ -18,6 +18,10 @@ BusinessNavigator — ваша мережа бізнес-можливостей 
 - contact.html — контакти
 - login.html / register.html — авторизація та реєстрація
 
+## Пошук і фільтри каталогів
+
+На сторінках companies.html, candidates.html, jobs.html та startups.html є пошук за словом (з українсько-англійськими синонімами: «дизайнер» знаходить Product Designer, «інвестор» знаходить Venture UA) і фільтри за типом, містом, сферою та форматом роботи. Значення фільтрів беруться з атрибутів карток `data-type`, `data-city`, `data-sphere`, `data-format`, додаткові слова для пошуку з `data-keywords`; контейнер позначається `data-catalog`. Стан пошуку зберігається в URL (`?q=...&city=...`). Код: `assets/catalog-filter.js`, `assets/catalog-filter.css`, тести: `node --test scripts/catalog-filter.test.mjs`.
+
 ## Технології
 Чисті HTML + CSS + JavaScript, Firebase Authentication + Analytics, Quantico, inline SVG icons, responsive layout, світла тема за замовчуванням із перемикачем, локальні photo assets та mobile menu.
 
