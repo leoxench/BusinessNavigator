@@ -85,9 +85,45 @@
           { type: 'heading', padding: 12, text: 'Вітаємо в мережі, {{ім’я}}!', level: 1, align: 'left', color: '#12171a' },
           { type: 'text', padding: 8, text: 'Дякуємо, що приєдналися до **BusinessNavigator** — української професійної мережі для бізнесу, кар’єри, стартапів і нових можливостей.\n\nОсь з чого варто почати:', align: 'left', fontSize: 16, color: '#12171a' },
           { type: 'columns', padding: 12, left: '**1. Заповніть профіль**\nМісто, навички й короткий опис допоможуть знайти вас.', right: '**2. Спробуйте Business Match**\nЗнайдіть партнерів, клієнтів і команду.', fontSize: 15, color: '#12171a' },
+          { type: 'text', padding: 8, text: '**3. Перегляньте каталог**\nКомпанії, ФОП, вакансії та проєкти — в одному місці, з пошуком і фільтрами за містом та сферою.', align: 'left', fontSize: 15, color: '#12171a' },
           { type: 'button', padding: 16, label: 'Перейти до профілю', url: `${SITE}/profile.html`, align: 'left', bg: '#0789a5', color: '#ffffff', radius: 0, fullWidth: false },
+          { type: 'text', padding: 4, text: 'Маєте питання? Просто дайте відповідь на цей лист або [напишіть нам](https://businessnavigator.com.ua/contact.html).', align: 'left', fontSize: 14, color: '#5c676c' },
           { type: 'divider', padding: 16, color: '#dde3e6', thickness: 1 },
           { type: 'footer', padding: 12, text: 'BusinessNavigator · Українська професійна мережа\nЯкщо лист потрапив до вас помилково — просто проігноруйте його.', align: 'center', color: '#8a979d' },
+        ]),
+    },
+    {
+      key: 'password-reset',
+      name: 'Скидання пароля',
+      description: 'Посилання для нового пароля',
+      build: () =>
+        design('Скидання пароля BusinessNavigator', 'Ми отримали запит на зміну пароля. Посилання діє 60 хвилин.', [
+          { type: 'image', padding: 8, src: LOGO, alt: 'BusinessNavigator', href: SITE, width: 12, align: 'left', radius: 0 },
+          { type: 'heading', padding: 12, text: 'Скидання пароля', level: 1, align: 'left', color: '#12171a' },
+          { type: 'text', padding: 8, text: 'Добрий день, {{ім’я}}!\n\nМи отримали запит на зміну пароля для акаунта **{{email}}**. Натисніть кнопку нижче, щоб задати новий пароль.', align: 'left', fontSize: 16, color: '#12171a' },
+          { type: 'button', padding: 16, label: 'Задати новий пароль', url: '{{reset_link}}', align: 'left', bg: '#0789a5', color: '#ffffff', radius: 0, fullWidth: false },
+          { type: 'text', padding: 8, text: 'Посилання діє **60 хвилин** і спрацьовує лише один раз. Якщо кнопка не відкривається, скопіюйте в браузер це посилання:\n{{reset_link}}', align: 'left', fontSize: 14, color: '#5c676c' },
+          { type: 'divider', padding: 16, color: '#dde3e6', thickness: 1 },
+          { type: 'text', padding: 4, text: '**Не надсилали запит?** Просто проігноруйте цей лист: пароль залишиться без змін. Ми ніколи не просимо повідомити пароль у листі чи телефоном.', align: 'left', fontSize: 14, color: '#5c676c' },
+          { type: 'footer', padding: 16, text: 'BusinessNavigator · Службовий лист щодо безпеки акаунта\nЦей лист надіслано автоматично, відповідати на нього не потрібно.', align: 'center', color: '#8a979d' },
+        ]),
+    },
+    {
+      key: 'promo',
+      name: 'Акція',
+      description: 'Загальна промо-розсилка',
+      build: () =>
+        design('{{назва_акції}}: спеціальна пропозиція для вас', 'Лише до {{дата_завершення}} — встигніть скористатися.', [
+          { type: 'image', padding: 8, src: LOGO, alt: 'BusinessNavigator', href: SITE, width: 12, align: 'center', radius: 0 },
+          { type: 'heading', padding: 12, text: '{{назва_акції}}', level: 1, align: 'center', color: '#12171a' },
+          { type: 'text', padding: 4, text: 'Спеціальна пропозиція діє до **{{дата_завершення}}**', align: 'center', fontSize: 16, color: '#0789a5' },
+          { type: 'image', padding: 12, src: `${SITE}/assets/images/team-meeting.jpg`, alt: 'Спеціальна пропозиція', href: SITE, width: 100, align: 'center', radius: 0 },
+          { type: 'text', padding: 8, text: 'Добрий день, {{ім’я}}!\n\nКоротко опишіть пропозицію: що саме отримує читач, на яких умовах і чому варто скористатися нею зараз.', align: 'center', fontSize: 16, color: '#12171a' },
+          { type: 'columns', padding: 12, left: '**Що ви отримуєте**\nГоловна вигода пропозиції одним-двома реченнями.', right: '**Як скористатися**\nНатисніть кнопку нижче або введіть промокод **{{промокод}}**.', fontSize: 15, color: '#12171a' },
+          { type: 'button', padding: 20, label: 'Скористатися пропозицією', url: SITE, align: 'center', bg: '#0789a5', color: '#ffffff', radius: 0, fullWidth: false },
+          { type: 'text', padding: 4, text: '*Умови акції: вкажіть обмеження, строки та порядок застосування.*', align: 'center', fontSize: 13, color: '#8a979d' },
+          { type: 'divider', padding: 16, color: '#dde3e6', thickness: 1 },
+          { type: 'footer', padding: 12, text: 'Ви отримали цей лист, бо підписані на новини BusinessNavigator.\n[Відписатися від розсилки]({{unsubscribe_link}})', align: 'center', color: '#8a979d' },
         ]),
     },
     {
@@ -304,7 +340,11 @@ ${rows}
       .map((b) => {
         switch (b.type) {
           case 'heading':
-            return md(b.text).toUpperCase();
+            // Плейсхолдери {{...}} не переводимо у верхній регістр, інакше підстановка зламається.
+            return md(b.text)
+              .split(/(\{\{[^}]+\}\})/)
+              .map((part) => (part.startsWith('{{') ? part : part.toUpperCase()))
+              .join('');
           case 'text':
           case 'footer':
             return md(b.text);
