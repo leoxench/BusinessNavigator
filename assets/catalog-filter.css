@@ -1,0 +1,15 @@
+/* Пошук і фільтри каталогів (assets/catalog-filter.js). Кольори беруться з токенів теми в styles.css. */
+.catalog-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-bottom:14px}
+.catalog-toolbar label{display:grid;gap:7px;flex:1 1 170px;font-size:8px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.catalog-toolbar .catalog-search{flex:1 1 100%}
+.catalog-toolbar input,.catalog-toolbar select{width:100%;min-width:0;border:1px solid var(--line-strong);background:var(--panel);color:var(--text);padding:13px 14px;outline:none;font-size:13px;letter-spacing:0;text-transform:none}
+.catalog-toolbar input:focus,.catalog-toolbar select:focus{border-color:var(--accent)}
+.catalog-reset{border:1px solid var(--line-strong);background:transparent;color:var(--text);padding:13px 18px;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+.catalog-reset:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.catalog-reset:disabled{opacity:.35;cursor:not-allowed}
+.catalog-count{margin:0 0 16px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.catalog-empty{padding:42px 24px;border:1px dashed var(--line-strong);background:var(--bg-soft);text-align:center}
+.catalog-empty h3{font-size:24px}
+.catalog-empty p{margin-top:10px;font-size:12px}
+[data-catalog]>[hidden]{display:none!important}
+@media(max-width:560px){.catalog-toolbar{display:grid;grid-template-columns:1fr}.catalog-reset{width:100%}}
